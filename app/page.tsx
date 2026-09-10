@@ -8,7 +8,7 @@ import { Search, Sparkles, ArrowRight, Wrench } from 'lucide-react';
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
   const filteredTools = TOOLS_LIST.filter((tool) => {
     const matchesSearch = tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -87,7 +87,7 @@ export default function Home() {
       <section id="tools" className="space-y-4">
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-bold text-slate-900 dark:text-white">
-            {selectedCategory === 'all' ? 'All Web Tools' : `${CATEGORIES.find(c => c.id === selectedCategory)?.name}`}
+            {selectedCategory === 'all' ? 'All Web Tools' : CATEGORIES.find(c => c.id === selectedCategory)?.name}
           </h2>
           <span className="text-xs text-slate-500">{filteredTools.length} tools available</span>
         </div>
